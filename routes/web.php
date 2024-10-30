@@ -27,7 +27,14 @@ Route::get('/', function () {
 Route::get('/home',[HomeController::class, 'index'])->
     middleware('auth')->name('home');
 
-Route::get('panel',[HomeController::class,'panel'])->middleware(['auth','admin']);
+    
+Route::middleware(['auth', 'admin'])->group(function () {
+    Route::get('/panel', [HomeController::class, 'panel'])->name('panel');
+    Route::get('/admin/edit/{id}', [HomeController::class, 'edit'])->name('admin.edit'); // Ruta para editar usuario
+    Route::put('/admin/update/{id}', [HomeController::class, 'update'])->name('admin.update'); // Ruta para actualizar usuario
+    Route::delete('/admin/destroy/{id}', [HomeController::class, 'destroy'])->name('admin.destroy'); // Ruta para eliminar usuario
+});
+
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

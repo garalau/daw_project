@@ -20,7 +20,7 @@ class HomeController extends Controller
             }
 
             else if($role=='admin') {
-                return view('admin.adminhome');
+                return redirect()->route('panel');
             }
 
             else {
@@ -30,6 +30,26 @@ class HomeController extends Controller
     }
 
     public function panel() {
-        return view("admin.panel");
+    $users = User::all();
+    return view('admin.adminhome', compact('users'));
     }
+
+    public function edit($id) {
+        $user = User::findOrFail($id);
+        return view('admin.edit', compact('user'));
+    }
+    
+    public function update(Request $request, $id) {
+        $user = User::findOrFail($id);
+        $user->update($request->all());
+        return redirect()->route('panel')->with('success', 'User updated successfully');
+    }
+
+    public function destroy($id) {
+        $user = User::findOrFail($id);
+        $user->delete();
+        return redirect()->route('panel')->with('success', 'User deleted successfully');
+    }
+    
+    
 }
