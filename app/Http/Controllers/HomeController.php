@@ -49,7 +49,6 @@ class HomeController extends Controller
         $user = User::findOrFail($id);
         $user->delete();
         return redirect()->route('panel')->with('success', 'User deleted successfully');
-    }
-    
+    }    
     
 }
