@@ -13,6 +13,36 @@
                         @csrf
                         @method('PUT')
                         <!-- Formulario de edición -->
+                        <!-- Nombre -->
+                        <div class="mb-4">
+                            <label for="name" class="block text-gray-700 font-semibold">Nombre</label>
+                            <input type="text" name="name" id="name" value="{{ $user->name }}" 
+                                   class="w-full px-4 py-2 border rounded-lg" required>
+                        </div>
+
+                        <!-- Correo Electrónico -->
+                        <div class="mb-4">
+                            <label for="email" class="block text-gray-700 font-semibold">Correo Electrónico</label>
+                            <input type="email" name="email" id="email" value="{{ $user->email }}" 
+                                   class="w-full px-4 py-2 border rounded-lg" required>
+                        </div>
+
+                        <!-- Rol -->
+                        <div class="mb-4">
+                            <label for="role" class="block text-gray-700 font-semibold">Rol</label>
+                            <select name="role" id="role" class="w-full px-4 py-2 border rounded-lg">
+                                <option value="user" {{ $user->role === 'user' ? 'selected' : '' }}>Usuario</option>
+                                <option value="admin" {{ $user->role === 'admin' ? 'selected' : '' }}>Administrador</option>
+                                <!-- Añadir más opciones de rol si es necesario -->
+                            </select>
+                        </div>
+
+                        <!-- Botón de Actualizar -->
+                        <div class="flex justify-end">
+                            <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700">
+                                Actualizar Usuario
+                            </button>
+                        </div>
                     </form>
                 </div>
             </div>
