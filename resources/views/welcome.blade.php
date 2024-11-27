@@ -2,7 +2,7 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
         <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
         <title>Norma Granada</title>
 
@@ -24,7 +24,7 @@
     <body>
         <!--Barra nav-->
         <nav class="navbar navbar-expand-lg" style="background-color: #198754;">
-            <div class="container px-0 mx-4">
+            <div class="container-fluid px-2 mx-4">
                 <!--Logo-->
                 <div class="d-flex align-items-center text-white">
                     <x-application-logo style="height: 100%; display: flex; "> </x-application-logo>
@@ -43,7 +43,7 @@
                     </ul>
                     <!-- Login -->
                     @if (Route::has('login'))
-                        <ul class="navbar-nav ml-auto mb-2 mb-lg-0">
+                        <ul class="navbar-nav ms-auto me-0 mb-2 mb-lg-0">
                             @auth
                                 <li class="nav-item"><a href="{{ url('/home') }}" class="nav-link text-white">{{ __('Dashboard') }}</a></li>
                             @else
@@ -84,7 +84,7 @@
             <div class="container px-5 my-5">
                 <div class="row gx-5">
                     <div class="col-lg-4 mb-5 mb-lg-0">
-                        <div class="feature bg-success bg-gradient text-white rounded-3 mb-3"><i class="bi bi-collection"></i></div>
+                        <div class="feature bg-success bg-gradient text-white rounded-3 mb-3 text-center"><i class="bi bi-collection"></i></div>
                         <h2 class="h4 fw-bolder">Featured title</h2>
                         <p>Paragraph of text beneath the heading to explain the heading. We'll add onto it with another sentence and probably just keep going until we run out of words.</p>
                         <a class="text-decoration-none" href="#!">
@@ -93,7 +93,7 @@
                         </a>
                     </div>
                     <div class="col-lg-4 mb-5 mb-lg-0">
-                        <div class="feature bg-success bg-gradient text-white rounded-3 mb-3"><i class="bi bi-building"></i></div>
+                        <div class="feature bg-success bg-gradient text-white rounded-3 mb-3 text-center"><i class="bi bi-building"></i></div>
                         <h2 class="h4 fw-bolder">Featured title</h2>
                         <p>Paragraph of text beneath the heading to explain the heading. We'll add onto it with another sentence and probably just keep going until we run out of words.</p>
                         <a class="text-decoration-none" href="#!">
@@ -102,7 +102,7 @@
                         </a>
                     </div>
                     <div class="col-lg-4">
-                        <div class="feature bg-success bg-gradient text-white rounded-3 mb-3"><i class="bi bi-toggles2"></i></div>
+                        <div class="feature bg-success bg-gradient text-white rounded-3 mb-3 text-center"><i class="bi bi-toggles2"></i></div>
                         <h2 class="h4 fw-bolder">Featured title</h2>
                         <p>Paragraph of text beneath the heading to explain the heading. We'll add onto it with another sentence and probably just keep going until we run out of words.</p>
                         <a class="text-decoration-none" href="#!">
@@ -394,10 +394,6 @@
         <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
         <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
         <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
-    </body>
-</html>
     
-
-        </div>
     </body>
 </html>
