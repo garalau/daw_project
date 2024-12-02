@@ -28,6 +28,14 @@ class HomeController extends Controller
             }
         }
     }
+    //redirigir a login si no estas registrado
+    public function herramientas() {
+        if(Auth::check()) {
+            return view('herramientas');
+        }
+        
+        return redirect()->route('login');
+    }
 
     public function panel() {
     $users = User::all();

@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 
 use App\Http\Controllers\HomeController;
 
@@ -17,12 +18,28 @@ use App\Http\Controllers\HomeController;
 */
 
 Route::get('/', function () {
+    if(Auth::check()) {
+        $role = Auth::user()->role;
+        
+        //si un usuario esta registrado welcome de usuarios
+        if($role === 'user') {
+            return view('welcome_user');
+        } 
+    }
+    //si no esta registrado
     return view('welcome');
-});
+})->name('welcome');
 
-/* Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard'); */
+Route::get('/conocenos', function () {
+    return view('conocenos'); 
+})->name('conocenos');
+
+Route::get('/noticias', function () {
+    return view('noticias');
+})->name('noticias');
+
+Route::get('/herramientas',[HomeController::class, 'herramientas'])->
+    middleware('auth')->name('herramientas');
 
 Route::get('/home',[HomeController::class, 'index'])->
     middleware('auth')->name('home');

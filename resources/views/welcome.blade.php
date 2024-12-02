@@ -37,15 +37,15 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto ms-5 mb-2 mb-lg-0">
                         <li class="nav-item fw-bold"><a class="nav-link active" aria-current="page" href="#!">Inicio</a></li>
-                        <li class="nav-item fw-bold"><a class="nav-link" href="#!">Conócenos</a></li>
-                        <li class="nav-item fw-bold"><a class="nav-link" href="#!">Noticias</a></li>
-                        <li class="nav-item fw-bold"><a class="nav-link" href="#!">Herramientas</a></li>
+                        <li class="nav-item fw-bold"><a class="nav-link" href="{{ route('conocenos') }}">Conócenos</a></li>
+                        <li class="nav-item fw-bold"><a class="nav-link" href="{{ route('noticias') }}">Noticias</a></li>
+                        <li class="nav-item fw-bold"><a class="nav-link" href="{{ route('herramientas') }}">Herramientas</a></li>
                     </ul>
                     <!-- Login -->
                     @if (Route::has('login'))
                         <ul class="navbar-nav ms-auto me-0 mb-2 mb-lg-0">
                             @auth
-                                <li class="nav-item"><a href="{{ url('/home') }}" class="nav-link text-white">{{ __('Dashboard') }}</a></li>
+                                <li class="nav-item"><a href="{{ route('home') }}" class="nav-link text-white">{{ __('Dashboard') }}</a></li>
                             @else
                                 <li class="nav-item"><a href="{{ route('login') }}" class="nav-link text-white">{{ __('Log in') }}</a></li>
                                 @if (Route::has('register'))

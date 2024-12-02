@@ -20,7 +20,7 @@
                                 <th class="px-4 py-2 border">Nombre</th>
                                 <th class="px-4 py-2 border">Correo Electrónico</th>
                                 <th class="px-4 py-2 border">Rol</th>
-                                <th class="px-4 py-2 border">Creado</th> <!-- Nueva columna para la fecha de creación -->
+                                <th class="px-4 py-2 border">Creado</th> 
                                 <th class="px-4 py-2 border">Acciones</th>
                             </tr>
                         </thead>
@@ -31,8 +31,8 @@
                                 <td class="border px-4 py-2 text-center">{{ $user->name }}</td>
                                 <td class="border px-4 py-2 text-center">{{ $user->email }}</td>
                                 <td class="border px-4 py-2 text-center">{{ $user->role }}</td>
-                                <td class="border px-4 py-2 text-center">{{ $user->created_at->format('d-m-Y H:i') }}</td> <!-- Mostrar fecha de creación -->
-                                <td class="border px-4 py-2 flex justify-center space-x-4"> <!-- Centrar botones -->
+                                <td class="border px-4 py-2 text-center">{{ $user->created_at->format('d-m-Y H:i') }}</td>
+                                <td class="border px-4 py-2 flex justify-center space-x-4"> 
                                     <a href="{{ route('admin.edit', $user->id) }}" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700">Editar</a>
                                     <form action="{{ route('admin.destroy', $user->id) }}" method="POST" style="display:inline;">
                                         @csrf
