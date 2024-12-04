@@ -27,7 +27,7 @@
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
-    <body>
+    <body  class="d-flex flex-column min-vh-100" style="min-height:100vh;">
         <!-- Navbar-->
         @include('layouts.nav-welcome')
 
@@ -41,12 +41,12 @@
         @endif -->
 
         <!-- Page Content -->
-        <main>
+        <main class="flex-grow-1">
             @yield('content')
         </main>
 
         <!-- Footer-->
-        <footer class="py-5 bg-dark">
+        <footer class="py-5 bg-dark mt-auto">
             <div class="container px-5"><p class="m-0 text-center text-white">Copyright &copy; Your Website 2023</p></div>
         </footer>
         <!-- Bootstrap core JS-->

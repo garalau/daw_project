@@ -1,43 +1,54 @@
 @extends('layouts.app-user')
 
 @section('content')
-<!-- Header-->
-<x-header-welcome 
-title="Bienvenid@ {{ Auth::user()->name }}"
-subtitle=""
-:show-buttons="false"
-/>
 
-<section class="py-5 border-bottom" id="features">
-    <div class="container px-5 my-5">
-        <div class="row gx-5">
-            <div class="col-lg-4 mb-5 mb-lg-0">
-                <div class="feature bg-success bg-gradient text-white rounded-3 mb-3 text-center"><i class="bi bi-file-earmark-plus"></i></div>
-                <h2 class="h4 fw-bolder">NUEVO PROYECTO</h2>
-                <p>Comienza un nuevo proyecto desde cero.</p>
-                <a class="text-decoration-none" href="#!">
-                    Acceder
-                    <i class="bi bi-arrow-right"></i>
+<x-header-welcome 
+    title="Bienvenid@, {{ Auth::user()->name }}!" 
+    subtitle=""
+    :show-buttons="false"
+    class="p-0 px-6 text-m"
+    />
+
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Barra -->
+            <div class="col-md-12 p-0 bg-dark">
+                <div class="d-flex justify-content-start">
+                <!-- Opción Nuevo Proyecto -->
+                <a href="#nuevo" onclick="loadContent('{{ route('proyectos.create') }}')" class="bg-dark text-white list-group-item list-group-item-action {{ Request::is('proyectos/create') ? 'active' : '' }} d-inline-flex align-items-center px-4 py-3 mx-2 rounded">
+                    <i class="bi bi-file-earmark-plus me-2"></i> Crear Proyecto
                 </a>
+                <!-- Opción Consultar Proyectos -->
+                <a href="#lista" onclick="loadContent('{{ route('proyectos.index') }}')" class="bg-dark text-white list-group-item list-group-item-action {{ Request::is('proyectos') || Request::is('proyectos/*') ? 'active' : '' }} d-inline-flex align-items-center px-4 py-3 mx-2 rounded">
+                    <i class="bi bi-folder me-2"></i> Mis Proyectos
+                </a>
+                <!-- Opción Papelera -->
+                <a href="#eliminados" onclick="loadContent('{{ route('proyectos.trash') }}')" class="bg-dark text-white list-group-item list-group-item-action {{ Request::is('proyectos/trash') ? 'active' : '' }} d-inline-flex align-items-center px-4 py-3 mx-2 rounded">
+                    <i class="bi bi-trash me-2"></i> Papelera
+                </a>
+                <!-- Opción Foro si hay tiempo y ganas-->
+                
             </div>
-            <div class="col-lg-4 mb-5 mb-lg-0">
-                <div class="feature bg-success bg-gradient text-white rounded-3 mb-3 text-center"><i class="bi bi-collection"></i></div>
-                <h2 class="h4 fw-bolder">CARPETA DE PROYECTOS</h2>
-                <p>Explora tus proyectos almacenados.</p>
-                <a class="text-decoration-none" href="#!">
-                    Acceder
-                    <i class="bi bi-arrow-right"></i>
-                </a>
             </div>
-            <div class="col-lg-4">
-                <div class="feature bg-success bg-gradient text-white rounded-3 mb-3 text-center"><i class="bi bi-book"></i></div>
-                <h2 class="h4 fw-bolder">DOCUMENTOS Y RECURSOS</h2>
-                <p>Accede a tus documentos y materiales necesarios.</p>
-                <a class="text-decoration-none" href="#!">
-                    Acceder
-                    <i class="bi bi-arrow-right"></i>
-                </a>
+    
+            <!-- Contenido Principal -->
+            <div class="col-md-9" id="main-content">
+                <!-- Aquí se cargan los archivos -->
             </div>
         </div>
     </div>
+    
+    <script>
+        // Función para cargar contenido 
+        function loadContent(url) {
+            fetch(url)
+                .then(response => response.text())
+                .then(data => {
+                    // Reemplazar el contenido del div con el contenido recibido
+                    document.getElementById('main-content').innerHTML = data;
+                })
+                .catch(error => console.error('Error al cargar contenido:', error));
+        }
+    </script>
+
 @endsection

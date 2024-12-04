@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ProyectosController;
 
 /*
 |--------------------------------------------------------------------------
@@ -57,6 +58,12 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
+
+Route::middleware('auth')->group(function () {
+    Route::get('proyectos/create', [ProyectosController::class, 'create'])->name('proyectos.create');
+    Route::get('proyectos', [ProyectosController::class, 'index'])->name('proyectos.index');
+    Route::get('proyectos/trash', [ProyectosController::class, 'trash'])->name('proyectos.trash');
 });
 
 require __DIR__.'/auth.php';

@@ -13,35 +13,51 @@
     <!-- Features section-->
     <section class="py-5 border-bottom" id="features">
         <div class="container px-5 my-5">
-            <div class="row gx-5">
+            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 gx-5">
+                <!-- Escritorio -->
+                <div class="col mb-5 mb-lg-0 d-flex flex-column justify-content-between">
+                    <div class="feature bg-success bg-gradient text-white rounded-3 mb-3 text-center">
+                        <i class="bi bi-archive"></i>
+                    </div>
+                    <h2 class="h4 fw-bolder">Escitorio</h2>
+                    <p>Accede a tu espacio personal, donde podrás iniciar y guardar tus proyectos</p>
+                    <div class="d-flex align-items-end">
+                        <x-primary-button class="mt-2" href="{{ route('home') }}">Acceder</x-primary-button>
+                    </div>
+                </div>
                 <!-- Norma Granada -->
-                <div class="col-lg-4 mb-5 mb-lg-0">
+                <div class="col mb-5 mb-lg-0 d-flex flex-column justify-content-between">
                     <div class="feature bg-success bg-gradient text-white rounded-3 mb-3 text-center">
                         <i class="bi bi-filetype-pdf"></i>
                     </div>
                     <h2 class="h4 fw-bolder">Norma Granada</h2>
                     <p>Accede a los documentos disponibles sobre la Norma Granada.</p>
-                    <x-primary-button class="mt-2" onclick="showNormaGranada()">Ver Documentos</x-primary-button>
+                    <div class="d-flex align-items-end">
+                        <x-primary-button class="mt-2" onclick="showNormaGranada()">Ver Documentos</x-primary-button>
+                    </div>
                 </div>
-                
                 <!-- Conversor de Unidades -->
-                <div class="col-lg-4 mb-5 mb-lg-0">
+                <div class="col mb-5 mb-lg-0 d-flex flex-column justify-content-between">
                     <div class="feature bg-success bg-gradient text-white rounded-3 mb-3 text-center">
                         <i class="bi bi-toggles2"></i>
                     </div>
                     <h2 class="h4 fw-bolder">Conversor de Unidades</h2>
                     <p>Convierte las unidades de medida fácilmente usando esta herramienta.</p>
-                    <x-primary-button class="mt-2" onclick="showConversor()">Ver Conversor</x-primary-button>
+                    <div class="d-flex align-items-end">
+                        <x-primary-button class="mt-2" onclick="showConversor()">Ver Conversor</x-primary-button>
+                    </div>
                 </div>
                 
                 <!-- Mapa -->
-                <div class="col-lg-4">
+                <div class="col d-flex flex-column justify-content-between">
                     <div class="feature bg-success bg-gradient text-white rounded-3 mb-3 text-center">
                         <i class="bi bi-map"></i>
                     </div>
                     <h2 class="h4 fw-bolder">Mapa de Proyectos</h2>
                     <p>Consulta las ubicaciones de tus proyectos.</p>
-                    <x-primary-button class="mt-2" onclick="showMapa()">Ver Mapa</x-primary-button>
+                    <div class="d-flex align-items-end">
+                        <x-primary-button class="mt-2" onclick="showMapa()">Ver Mapa</x-primary-button>
+                    </div>
                 </div>
             </div>
         </div>
