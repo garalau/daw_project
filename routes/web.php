@@ -2,10 +2,10 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
-use Illuminate\Support\Facades\Auth;
 
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProyectosController;
+use App\Http\Controllers\NewsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -39,9 +39,9 @@ Route::get('/home',[HomeController::class, 'index'])->
     
 Route::middleware(['auth', 'admin'])->group(function () {
     Route::get('/panel', [HomeController::class, 'panel'])->name('panel');
-    Route::get('/admin/edit/{id}', [HomeController::class, 'edit'])->name('admin.edit'); // Ruta para editar usuario
-    Route::put('/admin/update/{id}', [HomeController::class, 'update'])->name('admin.update'); // Ruta para actualizar usuario
-    Route::delete('/admin/destroy/{id}', [HomeController::class, 'destroy'])->name('admin.destroy'); // Ruta para eliminar usuario
+    Route::get('/admin/edit/{id}', [HomeController::class, 'edit'])->name('admin.edit'); 
+    Route::put('/admin/update/{id}', [HomeController::class, 'update'])->name('admin.update'); 
+    Route::delete('/admin/destroy/{id}', [HomeController::class, 'destroy'])->name('admin.destroy'); 
 });
 
 
@@ -56,5 +56,11 @@ Route::middleware('auth')->group(function () {
     Route::get('proyectos', [ProyectosController::class, 'index'])->name('proyectos.index');
     Route::get('proyectos/trash', [ProyectosController::class, 'trash'])->name('proyectos.trash');
 });
+
+Route::prefix('noticias')->group(function () {
+    Route::get('/', [NewsController::class, 'index'])->name('noticias');
+    Route::get('{id}', [NewsController::class, 'show'])->name('noticia.id');
+});
+
 
 require __DIR__.'/auth.php';
