@@ -3,7 +3,7 @@
         <!--Logo-->
         <div class="d-flex align-items-center text-white">
             <x-application-logo style="height: 100%; display: flex; "> </x-application-logo>
-            <h6>Norma Granada</h6>
+            <h6>TreeWorth Analytics</h6>
         </div>
         <!-- Nav items -->
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -33,19 +33,6 @@
                     </x-navuser-link>
                 </li>
             </ul>
-            <!-- Login -->
-            {{-- @if (Route::has('login'))
-                <ul class="navbar-nav ms-auto me-0 mb-2 mb-lg-0">
-                    @auth
-                        <li class="nav-item"><a href="{{ route('home') }}" class="nav-link text-white">{{ __('Dashboard') }}</a></li>
-                    @else
-                        <li class="nav-item"><a href="{{ route('login') }}" class="nav-link text-white">{{ __('Log in') }}</a></li>
-                        @if (Route::has('register'))
-                            <li class="nav-item"><a href="{{ route('register') }}" class="nav-link text-white">{{ __('Register') }}</a></li>
-                        @endif
-                    @endauth
-                </ul>
-            @endif --}}
             <ul class="navbar-nav ms-auto me-0 mb-2 mb-lg-0">
                 @if (Auth::check())
                     <!-- Profile and Logout options -->

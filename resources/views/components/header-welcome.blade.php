@@ -17,8 +17,8 @@
                     <!-- Conditional buttons -->
                     @if ($showButtons)
                         <div class="d-grid gap-3 d-sm-flex justify-content-sm-center">
-                            <a class="btn btn-success btn-lg px-4 me-sm-3" href="#prices">Hazte Socio</a>
-                            <a class="btn btn-outline-light btn-lg px-4" href="#contact">Contacto</a>
+                            <a class="btn btn-success btn-lg px-4 me-sm-3" href="{{ route('welcome', ['#prices']) }}">Hazte Socio</a>
+                            <a class="btn btn-outline-light btn-lg px-4" href="{{ route('welcome', ['#contact']) }}">Contacto</a>
                         </div>
                     @endif
                 </div>
