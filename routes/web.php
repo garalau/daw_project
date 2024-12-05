@@ -19,15 +19,6 @@ use App\Http\Controllers\ProyectosController;
 */
 
 Route::get('/', function () {
-    if(Auth::check()) {
-        $role = Auth::user()->role;
-        
-        //si un usuario esta registrado welcome de usuarios
-        if($role === 'user') {
-            return view('welcome_user');
-        } 
-    }
-    //si no esta registrado
     return view('welcome');
 })->name('welcome');
 
