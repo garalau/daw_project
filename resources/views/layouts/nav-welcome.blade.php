@@ -8,7 +8,8 @@
             </a>
         </div>
         <!-- Navbar Toggler -->
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <!-- Navbar Items -->
@@ -39,10 +40,16 @@
             <ul class="navbar-nav ms-auto me-0 mb-2 mb-lg-0">
                 @auth
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle text-white" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
                             {{ Auth::user()->name }}
                         </a>
                         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                            @auth
+                                @if (auth()->user()->role === 'admin')
+                                    <li><a class="dropdown-item" href="{{ route('panel') }}">{{ __('Panel Administración') }}</a></li>
+                                @endif
+                            @endauth
                             <li><a class="dropdown-item" href="{{ route('home') }}">{{ __('Escritorio') }}</a></li>
                             <li><a class="dropdown-item" href="{{ route('profile.edit') }}">{{ __('Perfil') }}</a></li>
                             <li>
@@ -55,12 +62,15 @@
                     </li>
                 @else
                     <!-- Login y Register invitados -->
-                    <li class="nav-item"><a href="{{ route('login') }}" class="nav-link text-white">{{ __('Iniciar sesión') }}</a></li>
+                    <li class="nav-item"><a href="{{ route('login') }}"
+                            class="nav-link text-white">{{ __('Iniciar sesión') }}</a></li>
                     @if (Route::has('register'))
-                        <li class="nav-item"><a href="{{ route('register') }}" class="nav-link text-white">{{ __('Registrarse') }}</a></li>
+                        <li class="nav-item"><a href="{{ route('register') }}"
+                                class="nav-link text-white">{{ __('Registrarse') }}</a></li>
                     @endif
                 @endauth
             </ul>
         </div>
     </div>
+
 </nav>

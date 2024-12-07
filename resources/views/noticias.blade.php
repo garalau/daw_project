@@ -16,7 +16,7 @@
                 <div id="news-list" class="row row-cols-1 row-cols-md-3 g-4">
                     @foreach ($news as $item)
                     <div class="col mb-3">
-                        <div class="card h-100 d-flex flex-column" data-id="{{ $item->id }}" style="cursor: pointer;">
+                        <div class="card h-100 d-flex flex-column news-item" data-id="{{ $item->id }}" style="cursor: pointer;">
                             <div class="card-body d-flex flex-column">
                                 <!-- Imagen de la noticia -->
                                 @if($item->image)
@@ -71,7 +71,7 @@
                         // Cargar la imagen
                         const newsImage = document.getElementById('news-image');
                         if (data.image) {
-                            newsImage.src = `/storage/${data.image}`; // Asegúrate de que esta ruta esté correcta
+                            newsImage.src = `/storage/${data.image}`;
                             newsImage.classList.remove('d-none');
                         } else {
                             newsImage.classList.add('d-none');
@@ -80,6 +80,7 @@
                         // Mostrar los detalles y ocultar el listado
                         newsDetails.classList.remove('d-none');
                         newsList.parentElement.classList.add('d-none');
+
                     })
                     .catch(error => console.error('Error:', error));
             });

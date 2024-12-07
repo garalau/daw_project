@@ -21,24 +21,12 @@
         <!--Google maps-->
         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC-zZ2jJqJbWLqi7mxGBq_5fxGpohbD33k&callback=initMap" async defer></script>
 
-
-        
-
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
-    <body  class="d-flex flex-column min-vh-100" style="min-height:100vh;">
+    <body  class="d-flex flex-column min-vh-100" {{-- style="min-height:100vh;" --}}>
         <!-- Navbar-->
         @include('layouts.nav-welcome')
-
-        <!-- Page Heading 
-        @if (isset($header))
-            <header class="bg-white shadow">
-                <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-                    {{ $header }}
-                </div>
-            </header>
-        @endif -->
 
         <!-- Page Content -->
         <main class="flex-grow-1">
