@@ -43,3 +43,10 @@ class User extends Authenticatable
         'password' => 'hashed',
     ];
 }
+
+//RELACIÓN CON REGISTROSPROYECTOS . MIRAR COMO METER TODAVIA NO FUNCIOONA
+
+public function registrosProyectos()
+{
+    return $this->hasMany(RegistrosProyectos::class, 'user_id');
+}
