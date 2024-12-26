@@ -8,6 +8,8 @@ use App\Http\Controllers\ProyectosController;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\UserController;
 
+use App\Http\Controllers\EspeciesConiferasControlador;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -79,5 +81,10 @@ Route::middleware('auth')->group(function () {
     Route::get('proyectos/trash', [ProyectosController::class, 'trash'])->name('proyectos.trash');
 });
 
+Route::middleware(['auth', 'admin'])->group(function () {
+    Route::get('/especies', [EspeciesConiferasControlador::class, 'index'])->name('especies.index');
+    Route::get('/especies/create', [EspeciesConiferasControlador::class, 'create'])->name('especies.create');
+    Route::post('/especies', [EspeciesConiferasControlador::class, 'store'])->name('especies.store');
+});
 
 require __DIR__.'/auth.php';
