@@ -15,22 +15,21 @@ class CalculoValorConiferaController extends Controller
     public function showForm()
     {
         $especies = EspeciesConiferas::all(['id', 'nombre_cientifico']);
-        dd($especies);
 
-        $valores_intrínsecos = [
+        $valores_intrinsecos = [
             'Alta calidad' => 0.2,
             'Media calidad' => 0.1,
             'Baja calidad' => 0.05,
         ];
 
-        $valores_extrínsecos = [ 
+        $valores_extrinsecos = [ 
             'Zona urbana' => 0.3,
             'Zona rural' => 0.1,
             'Zona protegida' => 0.5,
         ];
 
         
-        return view('proyectos.create', compact('especies', 'valores_intrínsecos', 'valores_extrínsecos'));
+        return view('proyectos.formularioConifera', compact('especies', 'valores_intrinsecos', 'valores_extrinsecos'));
     }
 
     /**
@@ -41,7 +40,8 @@ class CalculoValorConiferaController extends Controller
         $request->validate([
             'especie_id' => 'required|exists:especies_coniferas,id',
             'altura' => 'required|numeric|min:0',
-            //valores intrínsecos y extrínsecos...
+            'valor_intrinseco' => 'required|numeric',
+            'valor_extrinseco' => 'required|numeric',
         ]);
 
         // Obtener la especie seleccionada

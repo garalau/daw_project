@@ -84,7 +84,8 @@ Route::middleware('auth')->group(function () {
     Route::get('proyectos', [ProyectosController::class, 'index'])->name('proyectos.index');
     Route::get('proyectos/trash', [ProyectosController::class, 'trash'])->name('proyectos.trash');
     Route::get('proyectos/forum', [ProyectosController::class, 'forum'])->name('proyectos.forum');
-    Route::get('calcular/conifera', [CalculoValorConiferaController::class, 'showForm'])->name('calcular.conifera');
+    Route::get('formularioConifera', [CalculoValorConiferaController::class, 'showForm'])->name('formularioConifera');
+    Route::post('calcular/conifera', [CalculoValorConiferaController::class, 'calcularValorConifera'])->name('calcular.conifera');
 });
 
 Route::middleware(['auth', 'admin'])->group(function () {
