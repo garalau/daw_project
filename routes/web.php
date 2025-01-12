@@ -84,6 +84,7 @@ Route::middleware('auth')->group(function () {
     Route::get('proyectos', [ProyectosController::class, 'index'])->name('proyectos.index');
     Route::get('proyectos/trash', [ProyectosController::class, 'trash'])->name('proyectos.trash');
     Route::get('proyectos/forum', [ProyectosController::class, 'forum'])->name('proyectos.forum');
+    Route::get('calcular/conifera', [CalculoValorConiferaController::class, 'showForm'])->name('calcular.conifera');
 });
 
 Route::middleware(['auth', 'admin'])->group(function () {
@@ -99,9 +100,9 @@ Route::middleware(['auth', 'admin'])->group(function () {
 //RUTA DEL FORMULARIO NUEVO da error
 
 // Ruta para mostrar el formulario
-Route::middleware('auth')->get('/coniferas/create', [CalculoValorConiferaController::class, 'showForm'])->name('coniferas.create');
+//Route::middleware('auth')->get('/coniferas/create', [CalculoValorConiferaController::class, 'showForm'])->name('coniferas.create');
 
 // Ruta para calcular el valor de la conífera
-Route::post('/coniferas/calcular', [CalculoValorConiferaController::class, 'calcularValorConifera'])->name('calcular.valor.conifera');
+//Route::post('/coniferas/calcular', [CalculoValorConiferaController::class, 'calcularValorConifera'])->name('calcular.valor.conifera');
 
 require __DIR__.'/auth.php';

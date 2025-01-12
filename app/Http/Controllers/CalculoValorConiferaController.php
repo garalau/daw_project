@@ -15,14 +15,19 @@ class CalculoValorConiferaController extends Controller
     public function showForm()
     {
         $especies = EspeciesConiferas::all(['id', 'nombre_cientifico']);
+        dd($especies);
 
-        $valores_intrínsecos = ['Alta calidad' => 0.2,
-    'Media calidad' => 0.1,
-    'Baja calidad' => 0.05,];
+        $valores_intrínsecos = [
+            'Alta calidad' => 0.2,
+            'Media calidad' => 0.1,
+            'Baja calidad' => 0.05,
+        ];
 
-        $valores_extrínsecos = [ 'Zona urbana' => 0.3,
-        'Zona rural' => 0.1,
-        'Zona protegida' => 0.5,];
+        $valores_extrínsecos = [ 
+            'Zona urbana' => 0.3,
+            'Zona rural' => 0.1,
+            'Zona protegida' => 0.5,
+        ];
 
         
         return view('proyectos.create', compact('especies', 'valores_intrínsecos', 'valores_extrínsecos'));
@@ -61,7 +66,7 @@ class CalculoValorConiferaController extends Controller
         $valor_basico = $valor_caracteristico * $valor_y;
         $valor_final = $valor_basico * (1 + $request->valor_intrinseco + $request->valor_extrinseco);
 
-        return view('resultado', compact('valor_conifera'));
+        return view('resultado', compact('valor_final'));
     }
 
     //CREAR LA FUNCIÓN PARA GUARDAR LOS DATOS EN LA TABLA REGISTROSPROYECTOS O HACER OTRO CONTROLADOR PARA TENERLO MÁS ORGANIZADO
