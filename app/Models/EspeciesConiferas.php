@@ -7,7 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class EspeciesConiferas extends Model
 {
-    use HasFactory;
+    //use HasFactory;
+
 
     // Campos que se pueden asignar masivamente
     protected $fillable = [

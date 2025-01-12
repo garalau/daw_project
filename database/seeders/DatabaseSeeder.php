@@ -21,7 +21,7 @@ class DatabaseSeeder extends Seeder
         //     'email' => 'test@example.com',
         // ]);
 
-        $this -> call(EspeciesConiferas::class);
+        $this->call(EspeciesConiferasSeeder::class);
     }
 }
 
