@@ -23,4 +23,10 @@ class ProyectosController extends Controller
     {
         return view('proyectos.trash');
     }
+
+     // Muestra el foro
+     public function forum()
+     {
+         return view('proyectos.forum');
+     }
 }

@@ -27,6 +27,9 @@
                     <i class="bi bi-trash me-2"></i> Papelera
                 </a>
                 <!-- Opción Foro si hay tiempo y ganas-->
+                <a href="#eliminados" onclick="loadContent('{{ route('proyectos.forum') }}')" class="bg-dark text-white list-group-item list-group-item-action {{ Request::is('proyectos/trash') ? 'active' : '' }} d-inline-flex align-items-center px-4 py-3 mx-2 rounded">
+                    <i class="bi bi-chat-left me-2"></i> Foro
+                </a>
                 
             </div>
             </div>
@@ -34,6 +37,10 @@
             <!-- Contenido Principal -->
             <div class="col-md-9" id="main-content">
                 <!-- Aquí se cargan los archivos -->
+                
+                    <h4>Mis Proyectos</h4>
+                    <!-- Aquí puedes listar los proyectos -->
+                </div>
             </div>
         </div>
     </div>
@@ -51,4 +58,4 @@
         }
     </script>
 
-@endsection
+677777777

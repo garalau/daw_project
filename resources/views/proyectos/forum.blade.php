@@ -4,7 +4,7 @@
     
     <!-- Header-->
     <x-header-welcome 
-    title="Papelera" 
+    title="Foro" 
     subtitle=""
     :show-buttons="false"
     />
@@ -12,9 +12,6 @@
     <x-navproject />
 
     
-    <h1>PROYECTOS ELIMINADOS</h1>
-    
-    
-    
-    
+    <h1>FORO</h1>
+
 @endsection

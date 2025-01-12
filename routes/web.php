@@ -81,6 +81,7 @@ Route::middleware('auth')->group(function () {
     Route::get('proyectos/create', [ProyectosController::class, 'create'])->name('proyectos.create');
     Route::get('proyectos', [ProyectosController::class, 'index'])->name('proyectos.index');
     Route::get('proyectos/trash', [ProyectosController::class, 'trash'])->name('proyectos.trash');
+    Route::get('proyectos/forum', [ProyectosController::class, 'forum'])->name('proyectos.forum');
 });
 
 Route::middleware(['auth', 'admin'])->group(function () {

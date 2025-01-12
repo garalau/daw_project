@@ -19,7 +19,7 @@
                     <div class="feature bg-success bg-gradient text-white rounded-3 mb-3 text-center">
                         <i class="bi bi-archive"></i>
                     </div>
-                    <h2 class="h4 fw-bolder">Escitorio</h2>
+                    <h2 class="h4 fw-bolder">Escritorio</h2>
                     <p>Accede a tu espacio personal, donde podrás iniciar y guardar tus proyectos</p>
                     <div class="d-flex align-items-end">
                         <x-primary-button class="mt-2" href="{{ route('home') }}">Acceder</x-primary-button>

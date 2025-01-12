@@ -17,7 +17,7 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet" />
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
         <!-- Core theme CSS (includes Bootstrap)-->
-        <link href="front/css/styles.css" rel="stylesheet" />
+        <link href="{{ asset('front/css/styles.css') }}" rel="stylesheet" />
         <!--Google maps-->
         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC-zZ2jJqJbWLqi7mxGBq_5fxGpohbD33k&callback=initMap" async defer></script>
 
@@ -40,7 +40,7 @@
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->
-        <script src="front/js/scripts.js"></script>
+        <script src="{{ asset('front/js/scripts.js') }}"></script>
         <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
         <!-- * *                               SB Forms JS                               * *-->
         <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
