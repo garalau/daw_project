@@ -46,7 +46,12 @@ class User extends Authenticatable
 
 //RELACIÓN CON REGISTROSPROYECTOS . MIRAR COMO METER TODAVIA NO FUNCIOONA
 
-//public function registrosProyectos()
-//{
-    //return $this->hasMany(RegistrosProyectos::class, 'user_id');
-//}
+/*
+public function registrosProyectos()
+{
+    return $this->hasMany(RegistrosProyectos::class, 'user_id');
+}*/
+
+
+
+

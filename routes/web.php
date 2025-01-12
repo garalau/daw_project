@@ -12,6 +12,8 @@ use App\Http\Controllers\EspeciesConiferasControlador;
 
 use App\Http\Controllers\FactorExtrinsecoController;
 
+use App\Http\Controllers\CalculoValorConiferaController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -90,7 +92,16 @@ Route::middleware(['auth', 'admin'])->group(function () {
     Route::post('/especies', [EspeciesConiferasControlador::class, 'store'])->name('especies.store');
 });
 
-Route::get('/factor-extrinseco/create', [FactorExtrinsecoController::class, 'create'])->name('factor_extrinsecos.create');
-Route::post('/factor-extrinseco', [FactorExtrinsecoController::class, 'store'])->name('factor_extrinsecos.store');
+//hecho por Jon 
+//Route::get('/factor-extrinseco/create', [FactorExtrinsecoController::class, 'create'])->name('factor_extrinsecos.create');
+//Route::post('/factor-extrinseco', [FactorExtrinsecoController::class, 'store'])->name('factor_extrinsecos.store');
+
+//RUTA DEL FORMULARIO NUEVO da error
+
+// Ruta para mostrar el formulario
+Route::middleware('auth')->get('/coniferas/create', [CalculoValorConiferaController::class, 'showForm'])->name('coniferas.create');
+
+// Ruta para calcular el valor de la conífera
+Route::post('/coniferas/calcular', [CalculoValorConiferaController::class, 'calcularValorConifera'])->name('calcular.valor.conifera');
 
 require __DIR__.'/auth.php';

@@ -9,6 +9,7 @@ class ProyectosController extends Controller
     // Muestra el formulario para crear un nuevo proyecto
     public function create()
     {
+        
         return view('proyectos.create');
     }
 
