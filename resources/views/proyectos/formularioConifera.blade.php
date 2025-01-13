@@ -1,7 +1,17 @@
 <h1>Calcular Valor Ornamentístico de la Conífera</h1>
     
-        <!-- Formulario para calcular el valor de la conífera -->
-        <form action="{{ route('calcular.conifera') }}" method="POST">
+        {{-- <!-- Formulario para calcular el valor de la conífera -->
+        <form action="{{ route('calcular.conifera') }}" method="POST"> --}}
+            @if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
+
             @csrf
     
             <!-- Selección de la especie -->
@@ -51,5 +61,4 @@
             <div class="form-group mt-4">
                 <button type="submit" class="btn btn-primary">Calcular Valor</button>
             </div>
-        </form>
     </div>
