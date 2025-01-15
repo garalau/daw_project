@@ -27,7 +27,7 @@
     
     <!-- Formulario para calcular el valor de la especie -->
     <div class="container p-4">
-    <form id="form-calculo">
+    <form id="form-calculo" method="POST">
         @csrf
         <!-- Nombre del proyecto -->
         <div class="form-group mt-3">
@@ -61,15 +61,14 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="resultadoModalLabel">Resultado del Proyecto</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <h5 class="modal-title" id="resultadoModalLabel">Resultado</h5>
             </div>
             <div class="modal-body" id="modal-resultados">
                 <!-- Aquí se mostrarán los resultados calculados -->
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                <button type="button" id="guardarProyectoBtn" class="btn btn-primary">Guardar Proyecto</button>
+                <button type="submit" id="guardarProyectoBtn" class="btn btn-success">Guardar Proyecto</button>
             </div>
         </div>
     </div>
@@ -103,7 +102,7 @@
             fetch("{{ route('proyectos.resultado') }}", {
                 method: 'POST',
                 body: formData,
-            })
+            }) 
             .then(response => response.json())
             .then(data => {
                 if (data.success) {
