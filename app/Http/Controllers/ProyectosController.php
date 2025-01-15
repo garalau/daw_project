@@ -39,21 +39,26 @@ class ProyectosController extends Controller
             'descripcion' => 'nullable|string',
             'especie_id' => 'required|exists:especies_coniferas,id',
             'altura' => 'required|numeric|min:0',
-            'valor_y' => 'required|numeric',
+            'valor_y' => 'required|numeric', 
+            'valor_intrinseco' => 'required|numeric',
+            'valor_extrinseco' => 'required|numeric',
             'valor_final' => 'required|numeric',
         ]);
 
-        $proyecto = new Proyecto();
-        $proyecto->nombre = $request->nombre;
-        $proyecto->descripcion = $request->descripcion;
-        $proyecto->user_id = auth()->id(); // Guardar el ID del usuario autenticado
-        $proyecto->especie_id = $request->especie_id; // Guardar el ID de la especie
-        $proyecto->altura = $request->altura; // Guardar la altura
-        $proyecto->valor_y = $request->valor_y; // Guardar el valor 'y'
-        $proyecto->valor_final = $request->valor_final; // Guardar el valor final
-        $proyecto->save();
+        Proyecto::create([
+            'user_id' => auth()->id(),
+            'nombre' => $request->nombre,
+            'descripcion' => $request->descripcion,
+            'especie_id' => $request->especie_id,
+            'altura' => $request->altura,
+            'valor_y' => $request->valor_y,
+            'valor_final' => $request->valor_final,
+        ]);
+        
 
-        return redirect()->route('proyectos.index')->with('success', 'Proyecto guardado con éxito.');
+        return response()->json(['success' => true, 'message' => 'Proyecto guardado con éxito.']);
+
+        //return redirect()->route('proyectos.index')->with('success', 'Proyecto guardado con éxito.');
     }
 
 }

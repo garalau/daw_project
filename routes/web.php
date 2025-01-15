@@ -80,12 +80,12 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::middleware('auth')->group(function () {
-    Route::get('proyectos/create', [ProyectosController::class, 'create'])->name('proyectos.create');
+    //Route::get('proyectos/create', [ProyectosController::class, 'create'])->name('proyectos.create');
     Route::get('proyectos', [ProyectosController::class, 'index'])->name('proyectos.index');
     Route::get('proyectos/trash', [ProyectosController::class, 'trash'])->name('proyectos.trash');
     Route::get('proyectos/forum', [ProyectosController::class, 'forum'])->name('proyectos.forum');
-    Route::get('formularioConifera', [CalculoValorConiferaController::class, 'showForm'])->name('formularioConifera');
-    Route::post('proyectos/create/resultado', [CalculoValorConiferaController::class, 'calcularValorConifera'])->name('proyectos.resultado');
+    Route::get('proyectos/create', [CalculoValorConiferaController::class, 'showForm'])->name('proyectos.create');
+    Route::post('proyectos/create', [CalculoValorConiferaController::class, 'calcularValorConifera'])->name('proyectos.resultado');
     Route::post('proyectos/store', [ProyectosController::class, 'store'])->name('proyectos.store');
     
 });
