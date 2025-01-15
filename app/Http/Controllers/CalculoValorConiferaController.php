@@ -30,7 +30,7 @@ class CalculoValorConiferaController extends Controller
         ];
 
         
-        return view('proyectos.formularioConifera', compact('especies', 'valores_intrinsecos', 'valores_extrinsecos'));
+        return view('proyectos.create', compact('especies', 'valores_intrinsecos', 'valores_extrinsecos'));
     }
 
     /**
@@ -60,9 +60,12 @@ class CalculoValorConiferaController extends Controller
             ->where('altura_max', '>', $request->altura)
             ->value('valor_y');
 
-        if (!$valor_y) {
-            return back()->withErrors(['message' => 'No se encontró un valor de "y" para la altura ingresada.']);
-        }
+            if (!$valor_y) {
+                return response()->json([
+                    'success' => false,
+                    'message' => 'No se encontró un valor de "y" para la altura ingresada.'
+                ]);
+            }
 
         // Aplicar la fórmula matemática usando el valor de "y" y los valores intrínseco/extrínseco
         $valor_caracteristico = 800 ;
@@ -70,21 +73,19 @@ class CalculoValorConiferaController extends Controller
         $valor_final = $valor_basico * (1 + $request->valor_intrinseco + $request->valor_extrinseco);
 
         //deuelve los datos en json
-        $resultHtml = view('proyectos.resultado', [
-            'nombre' => $request->nombre,
-            'descripcion' => $request ->descripcion,
-            'especie' => $especie->nombre_cientifico,
-            'altura' => $request ->altura,
-            'valor_intrinseco' => $request->valor_intrinseco,
-            'valor_extrinseco' => $request->valor_extrinseco,
-            'valor_final' => $valor_final
-        ])->render();
-
-        // Devolver los datos como JSON
         return response()->json([
-        'success' => true,
-        'html' => $resultHtml
-    ]);
+            'success' => true,
+            'data' => [
+                'nombre' => $request->nombre,
+                'descripcion' => $request->descripcion,
+                'especie' => $especie->nombre_cientifico,
+                'altura' => $request->altura,
+                'valor_y' => $valor_y,
+                'valor_intrinseco' => $request->valor_intrinseco,
+                'valor_extrinseco' => $request->valor_extrinseco,
+                'valor_final' => $valor_final,
+            ]
+        ]);
     }
     
 
