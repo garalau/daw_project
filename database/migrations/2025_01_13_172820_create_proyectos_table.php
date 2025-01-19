@@ -21,11 +21,18 @@ return new class extends Migration
             $table->foreignId('especie_id') // Relación con la tabla especies_coniferas
                   ->constrained('especies_coniferas')
                   ->onDelete('cascade');
-            $table->float('altura'); // Altura introducida por el usuario
-            $table->float('diametro')->nullable(); // Diámetro (si es necesario)
-            $table->float('valor_y'); // Valor de "y" calculado
-            $table->float('valor_final'); // Valor final calculado
-            $table->text('notas')->nullable(); // Notas adicionales (opcional)
+            $table->float('altura'); 
+            $table->enum('tamano_fotosintetico', ['excelente', 'buena', 'media', 'regular', 'poca', 'escasa']);
+        $table->enum('estado_sanitario', ['excelente', 'buena', 'media', 'regular', 'poca', 'escasa']);
+        $table->enum('expectativa_vida', ['excelente', 'buena', 'media', 'regular', 'poca', 'escasa']);
+        $table->enum('estetico_funcional', ['excelente', 'buena', 'media', 'regular', 'poca', 'escasa']);
+        $table->enum('representatividad_rareza', ['excelente', 'buena', 'media', 'regular', 'poca', 'escasa']);
+        $table->enum('situacion', ['excelente', 'buena', 'media', 'regular', 'poca', 'escasa']);
+        $table->enum('factores_extraordinarios', ['excelente', 'buena', 'media', 'regular', 'poca', 'escasa']);
+            $table->float('valor_y'); 
+            $table->float('valor_intrinseco');
+            $table->float('valor_extrinseco');
+            $table->float('valor_final');  
             $table->timestamps();
         });
     }

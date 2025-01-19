@@ -22,17 +22,25 @@ class Proyecto extends Model
      * @var array
      */
 
-    protected $fillable = [
+     protected $fillable = [
         'user_id',
         'nombre',
         'descripcion',
         'especie_id',
         'altura',
-        // 'diametro',
         'valor_y',
+        'tamano_fotosintetico',
+        'estado_sanitario',
+        'expectativa_vida',
+        'estetico_funcional',
+        'representatividad_rareza',
+        'situacion',
+        'factores_extraordinarios',
+        'valor_intrinseco',
+        'valor_extrinseco',
         'valor_final',
-        // 'notas',
     ];
+    
 
     /**
      * Relación con el modelo User (Usuario).

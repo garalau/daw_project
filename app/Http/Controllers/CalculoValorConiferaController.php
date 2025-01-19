@@ -209,8 +209,6 @@ class CalculoValorConiferaController extends Controller
                 'valor_y' => $valor_y,
                 'valor_intrinseco' => $sumaIntrinsecos,
                 'valor_extrinseco' => $sumaExtrinsecos,
-                /*'valor_intrinseco' => $request->valor_intrinseco,
-                'valor_extrinseco' => $request->valor_extrinseco,*/
                 'valor_final' => $valor_final,
             ]
         ]);
