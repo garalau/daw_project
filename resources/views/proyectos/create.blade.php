@@ -60,31 +60,99 @@
                 <input type="number" name="altura" id="altura" class="form-control" step="0.1" min="0" required>
             </div>
 
-            <!-- Valores intrínsecos NO TERMINADOS, SOLO UNA PRUEBA-->
-            <div class="form-group mt-3">
-                <label>Valores Intrínsecos:</label>
-                @foreach ($valores_intrinsecos as $label => $valor)
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="valor_intrinseco" value="{{ $valor }}" id="intrinseco_{{ $valor }}" required>
-                        <label class="form-check-label" for="intrinseco_{{ $valor }}">
-                            {{ $label }}
-                        </label>
-                    </div>
-                @endforeach
+            
+            
+            <!-- Valores Intrínsecos -->
+            <h3>Valores Intrínsecos</h3>
+            <div>
+                <label for="tamano_fotosintetico">1. Tamaño fotosintéticamente activo:</label>
+                <select name="tamano_fotosintetico" id="tamano_fotosintetico" required>
+                    <option value="excelente">Excelente</option>
+                    <option value="buena">Buena</option>
+                    <option value="media">Media</option>
+                    <option value="regular">Regular</option>
+                    <option value="poca">Poca</option>
+                    <option value="escasa">Escasa/Nula</option>
+                </select>
             </div>
 
-            <!-- Valores extrínsecos  NO TERMINADOS, SOLO UNA PRUEBA-->
-            <div class="form-group mt-3">
-                <label>Valores Extrínsecos:</label>
-                @foreach ($valores_extrinsecos as $label => $valor)
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="valor_extrinseco" value="{{ $valor }}" id="extrinseco_{{ $valor }}" required>
-                        <label class="form-check-label" for="extrinseco_{{ $valor }}">
-                            {{ $label }}
-                        </label>
-                    </div>
-                @endforeach
+            <div>
+                <label for="estado_sanitario">2. Estado sanitario:</label>
+                <select name="estado_sanitario" id="estado_sanitario" required>
+                    <option value="excelente">Excelente</option>
+                    <option value="buena">Buena</option>
+                    <option value="media">Media</option>
+                    <option value="regular">Regular</option>
+                    <option value="poca">Poca</option>
+                    <option value="escasa">Escasa/Nula</option>
+                </select>
             </div>
+
+            <div>
+                <label for="expectativa_vida">3. Expectativa de vida útil:</label>
+                <select name="expectativa_vida" id="expectativa_vida" required>
+                    <option value="excelente">Excelente</option>
+                    <option value="buena">Buena</option>
+                    <option value="media">Media</option>
+                    <option value="regular">Regular</option>
+                    <option value="poca">Poca</option>
+                    <option value="escasa">Escasa/Nula</option>
+                </select>
+            </div>
+
+            <!-- Valores Extrínsecos -->
+            <h3>Valores Extrínsecos</h3>
+            <div>
+                <label for="estetico_funcional">1. Estético y funcional:</label>
+                <select name="estetico_funcional" id="estetico_funcional" required>
+                    <option value="excelente">Excelente</option>
+                    <option value="buena">Buena</option>
+                    <option value="media">Media</option>
+                    <option value="regular">Regular</option>
+                    <option value="poca">Poca</option>
+                    <option value="escasa">Escasa/Nula</option>
+                </select>
+            </div>
+
+            <div>
+                <label for="representatividad_rareza">2. Representatividad y rareza:</label>
+                <select name="representatividad_rareza" id="representatividad_rareza" required>
+                    <option value="excelente">Excelente</option>
+                    <option value="buena">Buena</option>
+                    <option value="media">Media</option>
+                    <option value="regular">Regular</option>
+                    <option value="poca">Poca</option>
+                    <option value="escasa">Escasa/Nula</option>
+                </select>
+            </div>
+
+            <div>
+                <label for="situacion">3. Situación:</label>
+                <select name="situacion" id="situacion" required>
+                    <option value="excelente">Excelente</option>
+                    <option value="buena">Buena</option>
+                    <option value="media">Media</option>
+                    <option value="regular">Regular</option>
+                    <option value="poca">Poca</option>
+                    <option value="escasa">Escasa/Nula</option>
+                </select>
+            </div>
+
+            <div>
+                <label for="factores_extraordinarios">4. Factores extraordinarios:</label>
+                <select name="factores_extraordinarios" id="factores_extraordinarios" required>
+                    <option value="excelente">Excelente</option>
+                    <option value="buena">Buena</option>
+                    <option value="media">Media</option>
+                    <option value="regular">Regular</option>
+                    <option value="poca">Poca</option>
+                    <option value="escasa">Escasa/Nula</option>
+                </select>
+            </div>
+             
+         
+
+
 
             <!-- Botón de envío -->
             <div class="form-group mt-4">
@@ -142,8 +210,8 @@
                     document.getElementById('altura-modal').innerText = 'Altura: ' + formData.get('altura') + ' metros';
                     document.getElementById('especie-modal').innerText = 'Especie: ' + document.getElementById('especie_id').selectedOptions[0].text;
                     document.getElementById('valor_y-modal').innerText = 'Valor Y: ' + data.data.valor_y;
-                    document.getElementById('valor_intrinseco-modal').innerText = 'Valor Intrínseco: ' + formData.get('valor_intrinseco');
-                    document.getElementById('valor_extrinseco-modal').innerText = 'Valor Extrínseco: ' + formData.get('valor_extrinseco');
+                    //document.getElementById('valor_intrinseco-modal').innerText = 'Valor Intrínseco: ' + formData.get('valor_intrinseco');
+                   // document.getElementById('valor_extrinseco-modal').innerText = 'Valor Extrínseco: ' + formData.get('valor_extrinseco');
                     document.getElementById('valor_final-modal').innerText = 'Valor Final: ' + Math.round(data.data.valor_final);
 
                     // Abrir el modal
@@ -168,8 +236,8 @@
     let altura = document.getElementById('altura').value;
     let especie_id = document.getElementById('especie_id').value;
     let valor_y = document.getElementById('valor_y-modal').innerText.replace('Valor Y: ', '');
-    let valor_intrinseco = document.getElementById('valor_intrinseco-modal').innerText.replace('Valor Intrínseco: ', '');
-    let valor_extrinseco = document.getElementById('valor_extrinseco-modal').innerText.replace('Valor Extrínseco: ', '');
+    //let valor_intrinseco = document.getElementById('valor_intrinseco-modal').innerText.replace('Valor Intrínseco: ', '');
+    //let valor_extrinseco = document.getElementById('valor_extrinseco-modal').innerText.replace('Valor Extrínseco: ', '');
     let valor_final = document.getElementById('valor_final-modal').innerText.replace('Valor Final: ', '');
 
             // Enviar los datos al servidor con fetch
@@ -185,8 +253,8 @@
                     especie_id: especie_id,
                     altura: altura,
                     valor_y: valor_y,
-                    valor_intrinseco: valor_intrinseco,
-                    valor_extrinseco: valor_extrinseco,
+                    //valor_intrinseco: valor_intrinseco,
+                    //valor_extrinseco: valor_extrinseco,
                     valor_final: valor_final,
                     _token: document.querySelector('meta[name="csrf-token"]').getAttribute('content')
                 })

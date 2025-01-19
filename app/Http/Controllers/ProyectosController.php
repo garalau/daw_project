@@ -40,8 +40,8 @@ class ProyectosController extends Controller
             'especie_id' => 'required|exists:especies_coniferas,id',
             'altura' => 'required|numeric|min:0',
             'valor_y' => 'required|numeric', 
-            'valor_intrinseco' => 'required|numeric',
-            'valor_extrinseco' => 'required|numeric',
+            //'valor_intrinseco' => 'required|numeric',
+            //'valor_extrinseco' => 'required|numeric',
             'valor_final' => 'required|numeric',
         ]);
 
