@@ -194,7 +194,8 @@ class CalculoValorConiferaController extends Controller
         // Aplicar la fórmula matemática usando el valor de "y" y los valores intrínseco/extrínseco
         $valor_caracteristico = 800 ;
         $valor_basico = $valor_caracteristico * $valor_y;
-        $valor_final = $valor_basico * (1 + ($sumaIntrinsecos) + ($sumaExtrinsecos));
+        $valor_final_pesetas = $valor_basico * (1 + ($sumaIntrinsecos) + ($sumaExtrinsecos));
+        $valor_final = $valor_final_pesetas / 166.386;
         /*$valor_final = $valor_basico * (1 + $request->valor_intrinseco + $request->valor_extrinseco);*/
 
         //devuelve los datos en json

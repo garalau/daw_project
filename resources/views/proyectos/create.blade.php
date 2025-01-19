@@ -212,7 +212,7 @@
                     document.getElementById('valor_y-modal').innerText = 'Valor Y: ' + data.data.valor_y;
                     //document.getElementById('valor_intrinseco-modal').innerText = 'Valor Intrínseco: ' + formData.get('valor_intrinseco');
                    // document.getElementById('valor_extrinseco-modal').innerText = 'Valor Extrínseco: ' + formData.get('valor_extrinseco');
-                    document.getElementById('valor_final-modal').innerText = 'Valor Final: ' + Math.round(data.data.valor_final);
+                    document.getElementById('valor_final-modal').innerText = 'Valor Final: ' + Math.round(data.data.valor_final) + '€';
 
                     // Abrir el modal
                     var myModal = new bootstrap.Modal(document.getElementById('resultadoModal'));
