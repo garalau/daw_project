@@ -23,12 +23,12 @@ return new class extends Migration
                   ->onDelete('cascade');
             $table->float('altura'); 
             $table->enum('tamano_fotosintetico', ['excelente', 'buena', 'media', 'regular', 'poca', 'escasa']);
-        $table->enum('estado_sanitario', ['excelente', 'buena', 'media', 'regular', 'poca', 'escasa']);
-        $table->enum('expectativa_vida', ['excelente', 'buena', 'media', 'regular', 'poca', 'escasa']);
-        $table->enum('estetico_funcional', ['excelente', 'buena', 'media', 'regular', 'poca', 'escasa']);
-        $table->enum('representatividad_rareza', ['excelente', 'buena', 'media', 'regular', 'poca', 'escasa']);
-        $table->enum('situacion', ['excelente', 'buena', 'media', 'regular', 'poca', 'escasa']);
-        $table->enum('factores_extraordinarios', ['excelente', 'buena', 'media', 'regular', 'poca', 'escasa']);
+            $table->enum('estado_sanitario', ['excelente', 'buena', 'media', 'regular', 'poca', 'escasa']);
+            $table->enum('expectativa_vida', ['excelente', 'buena', 'media', 'regular', 'poca', 'escasa']);
+            $table->enum('estetico_funcional', ['excelente', 'buena', 'media', 'regular', 'poca', 'escasa']);
+            $table->enum('representatividad_rareza', ['excelente', 'buena', 'media', 'regular', 'poca', 'escasa']);
+            $table->enum('situacion', ['excelente', 'buena', 'media', 'regular', 'poca', 'escasa']);
+            $table->enum('factores_extraordinarios', ['excelente', 'buena', 'media', 'regular', 'poca', 'escasa']);
             $table->float('valor_y'); 
             $table->float('valor_intrinseco');
             $table->float('valor_extrinseco');

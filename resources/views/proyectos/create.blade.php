@@ -201,7 +201,7 @@
 @extends('layouts.app-user')
 
 @section('content')
-    <x-header-welcome title="Crear Proyecto" subtitle="" :show-buttons="false"/>
+    <x-header-welcome title="Nuevo Proyecto" subtitle="" :show-buttons="false"/>
 
     <x-navproject />
 

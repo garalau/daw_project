@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\ForumQuestion;
 use Illuminate\Http\Request;
 use App\Models\Proyecto;
+use App\Models\ForumReply;
 
 
 
@@ -29,10 +31,89 @@ class ProyectosController extends Controller
     }
 
      // Muestra el foro
-     public function forum()
-     {
-         return view('proyectos.forum');
-     }
+public function forum()
+{
+    $questions = ForumQuestion::with('user')->latest()->paginate(10);
+    return view('proyectos.forum', compact('questions'));
+}
+
+public function storeQuestion(Request $request)
+{
+    $request->validate([
+        'title' => 'required|string|max:255',
+        'body' => 'required|string',
+    ]);
+
+    ForumQuestion::create([
+        'title' => $request->title,
+        'body' => $request->body,
+        'user_id' => auth()->id(),
+    ]);
+
+    return redirect()->route('proyectos.forum')->with('success', 'Duda publicada correctamente.');
+}
+
+public function storeReply(Request $request, $questionId)
+{
+    $request->validate([
+        'reply' => 'required|string',
+        'parent_id' => 'nullable|exists:forum_replies,id',
+    ]);
+
+    ForumReply::create([
+        'body' => $request->reply,
+        'user_id' => auth()->id(),
+        'question_id' => $questionId,
+        'parent_id' => $request->parent_id, 
+    ]);
+
+    // Actualizar el contador de respuestas en la pregunta
+    $question = ForumQuestion::findOrFail($questionId);
+    $totalReplies = $question->countReplies();
+    $question->update(['replies_count' => $totalReplies]);
+
+    return redirect()->back()->with('success', 'Respuesta publicada correctamente.');
+}
+
+
+public function showQuestion($id)
+{
+    // // Obtener la pregunta con las respuestas principales y sus respuestas anidadas
+    // $question = ForumQuestion::with(['replies' => function($query) {
+    //     $query->whereNull('parent_id'); // Solo obtener respuestas principales
+    // }, 'replies.nestedReplies'])->findOrFail($id);
+
+    $question = ForumQuestion::with('replies')->findOrFail($id);
+
+    return view('proyectos.show-question', compact('question'));
+}
+
+public function storeNestedReply(Request $request, $replyId)
+{
+    $request->validate([
+        'reply' => 'required|string',
+    ]);
+
+    $reply = ForumReply::findOrFail($replyId);
+
+    // Crear una nueva respuesta anidada
+    $nestedReply = new ForumReply();
+    $nestedReply->body = $request->input('reply');
+    $nestedReply->user_id = auth()->id();
+    $nestedReply->question_id = $reply->question_id;
+    $nestedReply->parent_id = $reply->id;
+    $nestedReply->save();
+
+    // Incluir respuestas anidadas en el conteo total
+    $question = $reply->question;
+    $totalReplies = $question->repliesIncludingNested->count();
+
+    // Actualizar el contador de respuestas
+    $question->update(['replies_count' => $totalReplies]);
+
+    return redirect()->back()->with('success', 'Respuesta añadida con éxito.');
+}
+
 
      public function store(Request $request)
     {
