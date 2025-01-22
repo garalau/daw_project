@@ -15,7 +15,7 @@
             <i class="bi bi-trash me-2"></i> Papelera
         </a>
         <!-- Opción Foro si hay tiempo y ganas-->
-        <a href="{{ route('proyectos.forum') }}" class="bg-dark text-white list-group-item list-group-item-action {{ Request::is('proyectos/forum') ? 'active' : '' }} d-inline-flex align-items-center px-4 py-3 mx-2 rounded">
+        <a href="{{ route('forum.index') }}" class="bg-dark text-white list-group-item list-group-item-action {{ Request::is('proyectos/forum') ? 'active' : '' }} d-inline-flex align-items-center px-4 py-3 mx-2 rounded">
             <i class="bi bi-chat-left me-2"></i> Foro
         </a>
         

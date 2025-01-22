@@ -22,7 +22,7 @@
                     <h2 class="h4 fw-bolder">Escritorio</h2>
                     <p>Accede a tu espacio personal, donde podrás iniciar y guardar tus proyectos</p>
                     <div class="d-flex align-items-end">
-                        <x-primary-button class="mt-2" href="{{ route('home') }}">Acceder</x-primary-button>
+                        <x-primary-button class="mt-2" href="{{ route('proyectos.create') }}">Acceder</x-primary-button>
                     </div>
                 </div>
                 <!-- Norma Granada -->

@@ -13,7 +13,11 @@ class HomeController extends Controller
         
         $user = Auth::user();
 
-        return view('proyectos.index');
+        if ($user->role === 'admin') {
+            return view('admin.panel'); 
+        }
+
+        return view('herramientas');
     }
 
     //redirigir a login si no estas registrado

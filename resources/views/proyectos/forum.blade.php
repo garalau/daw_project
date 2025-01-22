@@ -19,7 +19,7 @@
             <button id="toggleForm" class="btn btn-success w-100 mb-3">Nueva Duda</button>
             
             <!-- Formulario para publicar una duda -->
-            <form id="newQuestionForm" action="{{ route('proyectos.storeQuestion') }}" method="POST" style="display: none;">
+            <form id="newQuestionForm" action="{{ route('forum.storeQuestion') }}" method="POST" style="display: none;">
                 @csrf
                 <div class="mb-3">
                     <label for="title" class="form-label">Título</label>
@@ -39,7 +39,7 @@
                 <div class="card mb-3">
                     <div class="card-body">
                         <h5 class="card-title">
-                            <a href="{{ route('proyectos.showQuestion', $question->id) }}" class="text-decoration-none text-dark">
+                            <a href="{{ route('forum.show', $question->id) }}" class="text-decoration-none text-dark">
                                 {{ $question->title }}
                             </a>
                         </h5>
@@ -48,7 +48,7 @@
                             Publicado por {{ $question->user->name }} - {{ $question->created_at->diffForHumans() }}
                         </p>
                         <p>
-                            <a href="{{ route('proyectos.showQuestion', $question->id) }}" class="btn btn-link text-success p-0">
+                            <a href="{{ route('forum.show', $question->id) }}" class="btn btn-link text-success p-0">
                                 {{ $question->repliesIncludingNested()->count() }} respuesta(s)
                             </a>
                         </p>

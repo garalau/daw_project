@@ -7,6 +7,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProyectosController;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\ForumController;
 
 use App\Http\Controllers\EspeciesConiferasControlador;
 use App\Http\Controllers\CalculoValorConiferaController;
@@ -76,19 +77,37 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
+// Route::middleware('auth')->group(function () {
+//     Route::get('proyectos', [ProyectosController::class, 'index'])->name('proyectos.index');
+//     Route::get('proyectos/trash', [ProyectosController::class, 'trash'])->name('proyectos.trash');
+//     Route::get('proyectos/forum', [ProyectosController::class, 'forum'])->name('proyectos.forum');
+//     Route::get('proyectos/create', [CalculoValorConiferaController::class, 'showForm'])->name('proyectos.create');
+//     Route::post('proyectos/create', [CalculoValorConiferaController::class, 'calcularValorConifera'])->name('proyectos.resultado');
+//     Route::post('proyectos/store', [ProyectosController::class, 'store'])->name('proyectos.store');
+//     Route::get('/forum', [ProyectosController::class, 'forum'])->name('proyectos.forum');
+//     Route::post('/forum', [ProyectosController::class, 'storeQuestion'])->name('proyectos.storeQuestion');
+//     Route::post('/forum/{question}/reply', [ProyectosController::class, 'storeReply'])->name('proyectos.storeReply');
+//     Route::get('/forum/{id}', [ProyectosController::class, 'showQuestion'])->name('proyectos.showQuestion');
+//     Route::post('/proyectos/reply/{reply}', [ProyectosController::class, 'storeNestedReply'])->name('proyectos.storeNestedReply');
+// });
+
 Route::middleware('auth')->group(function () {
     Route::get('proyectos', [ProyectosController::class, 'index'])->name('proyectos.index');
     Route::get('proyectos/trash', [ProyectosController::class, 'trash'])->name('proyectos.trash');
-    Route::get('proyectos/forum', [ProyectosController::class, 'forum'])->name('proyectos.forum');
     Route::get('proyectos/create', [CalculoValorConiferaController::class, 'showForm'])->name('proyectos.create');
     Route::post('proyectos/create', [CalculoValorConiferaController::class, 'calcularValorConifera'])->name('proyectos.resultado');
     Route::post('proyectos/store', [ProyectosController::class, 'store'])->name('proyectos.store');
-    Route::get('/forum', [ProyectosController::class, 'forum'])->name('proyectos.forum');
-    Route::post('/forum', [ProyectosController::class, 'storeQuestion'])->name('proyectos.storeQuestion');
-    Route::post('/forum/{question}/reply', [ProyectosController::class, 'storeReply'])->name('proyectos.storeReply');
-    Route::get('/forum/{id}', [ProyectosController::class, 'showQuestion'])->name('proyectos.showQuestion');
-    Route::post('/proyectos/reply/{reply}', [ProyectosController::class, 'storeNestedReply'])->name('proyectos.storeNestedReply');
 });
+
+
+Route::middleware('auth')->prefix('forum')->name('forum.')->group(function () {
+    Route::get('/', [ForumController::class, 'index'])->name('index');
+    Route::post('/', [ForumController::class, 'storeQuestion'])->name('storeQuestion');
+    Route::get('/{id}', [ForumController::class, 'showQuestion'])->name('show');
+    Route::post('/{question}/reply', [ForumController::class, 'storeReply'])->name('storeReply');
+    Route::post('/reply/{reply}', [ForumController::class, 'storeNestedReply'])->name('storeNestedReply');
+});
+
 
 Route::middleware(['auth', 'admin'])->group(function () {
     Route::get('/especies', [EspeciesConiferasControlador::class, 'index'])->name('especies.index');

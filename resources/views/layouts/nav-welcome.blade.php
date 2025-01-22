@@ -2,7 +2,7 @@
     <div class="container-fluid px-2 mx-4">
         <!-- Logo enlace -->
         <div class="d-flex align-items-center">
-            <a href="{{ route('home') }}" class="d-flex align-items-center text-white text-decoration-none">
+            <a href="{{ route('welcome') }}" class="d-flex align-items-center text-white text-decoration-none">
                 <x-application-logo style="height: 100%; display: flex;"> </x-application-logo>
                 <h6 class="ms-2">TreeWorth Analytics</h6>
             </a>

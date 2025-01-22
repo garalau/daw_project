@@ -26,7 +26,7 @@
                 <a href="#eliminados" onclick="loadContent('{{ route('proyectos.trash') }}')" class="bg-dark text-white list-group-item list-group-item-action {{ Request::is('proyectos/trash') ? 'active' : '' }} d-inline-flex align-items-center px-4 py-3 mx-2 rounded">
                     <i class="bi bi-trash me-2"></i> Papelera
                 </a>
-                <!-- Opción Foro si hay tiempo y ganas-->
+                <!-- Opción Foro -->
                 <a href="#eliminados" onclick="loadContent('{{ route('proyectos.forum') }}')" class="bg-dark text-white list-group-item list-group-item-action {{ Request::is('proyectos/trash') ? 'active' : '' }} d-inline-flex align-items-center px-4 py-3 mx-2 rounded">
                     <i class="bi bi-chat-left me-2"></i> Foro
                 </a>
@@ -57,5 +57,3 @@
                 .catch(error => console.error('Error al cargar contenido:', error));
         }
     </script>
-
-677777777

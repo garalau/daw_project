@@ -14,7 +14,7 @@
 
             <!-- Botón Volver -->
             <div class="mb-4">
-                <a href="{{ route('proyectos.forum') }}" class="btn btn-secondary">
+                <a href="{{ route('forum.index') }}" class="btn btn-secondary">
                     <i class="fas fa-arrow-left"></i> Volver al Foro
                 </a>
             </div>
@@ -44,7 +44,7 @@
                             <button class="btn btn-link text-success btn-sm text-decoration-none toggleReplyForm mt-2">
                                 <i class="fas fa-reply"></i> Responder
                             </button>
-                            <form action="{{ route('proyectos.storeNestedReply', $reply->id) }}" method="POST" style="display: none;" class="nestedReplyForm mt-3">
+                            <form action="{{ route('forum.storeNestedReply', $reply->id) }}" method="POST" style="display: none;" class="nestedReplyForm mt-3">
                                 @csrf
                                 <textarea name="reply" class="form-control mb-2" rows="2" placeholder="Escribe tu respuesta..." required></textarea>
                                 <button type="submit" class="btn btn-success btn-sm">Responder</button>
@@ -76,7 +76,7 @@
                                             <button class="btn btn-link text-success btn-sm text-decoration-none toggleNestedReplyForm mt-2">
                                                 <i class="fas fa-reply"></i> Responder
                                             </button>
-                                            <form action="{{ route('proyectos.storeNestedReply', $nestedReply->id) }}" method="POST" style="display: none;" class="nestedReplyForm mt-3">
+                                            <form action="{{ route('forum.storeNestedReply', $nestedReply->id) }}" method="POST" style="display: none;" class="nestedReplyForm mt-3">
                                                 @csrf
                                                 <textarea name="reply" class="form-control mb-2" rows="2" placeholder="Escribe tu respuesta..." required></textarea>
                                                 <button type="submit" class="btn btn-success btn-sm">Responder</button>
@@ -100,7 +100,7 @@
             <div class="card mb-4">
                 <div class="card-body">
                     <h5 class="card-title">Añadir una Respuesta</h5>
-                    <form action="{{ route('proyectos.storeReply', $question->id) }}" method="POST">
+                    <form action="{{ route('forum.storeReply', $question->id) }}" method="POST">
                         @csrf
                         <div class="mb-3">
                             <textarea name="reply" class="form-control" rows="4" placeholder="Escribe tu respuesta..." required></textarea>
