@@ -42,15 +42,20 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    /**
+ * Relación con el modelo Proyecto.
+ * Un usuario puede tener muchos proyectos.
+ *
+ * @return \Illuminate\Database\Eloquent\Relations\HasMany
+ */
+    public function proyectos()
+    {
+        return $this->hasMany(Proyecto::class);
+    }
 }
 
-//RELACIÓN CON REGISTROSPROYECTOS . MIRAR COMO METER TODAVIA NO FUNCIOONA
 
-/*
-public function registrosProyectos()
-{
-    return $this->hasMany(RegistrosProyectos::class, 'user_id');
-}*/
 
 
 
