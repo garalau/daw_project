@@ -44,7 +44,7 @@
                                 <li><strong>Valor Y:</strong> {{ $proyecto->valor_y }}</li>
                                 <li><strong>Valor Intrínseco:</strong> {{ $proyecto->valor_intrinseco }}</li>
                                 <li><strong>Valor Extrínseco:</strong> {{ $proyecto->valor_extrinseco }}</li>
-                                <li><strong>Valor Final:</strong> {{ $proyecto->valor_final }}</li>
+                                <li><strong>Valor Final:</strong> {{number_format( $proyecto->valor_final, 2, ',', '.') }} €</li>
                             </ul>
                         </td>
                         <td>{{ $proyecto->created_at->format('d/m/Y') }}</td>
