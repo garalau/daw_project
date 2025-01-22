@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class EspeciesConiferas extends Model
 {
-    //use HasFactory;
+    use HasFactory;
 
 
     // Campos que se pueden asignar masivamente
@@ -21,11 +21,16 @@ class EspeciesConiferas extends Model
         'b_factor',
     ];
 
-/*
-    //RELACION CON REGISTROS PROYECTOS. TODAVIA NO FUNCIONA
-    public function registrosProyectos()
+    /**
+     * Relación con el modelo Proyecto.
+     * Una especie puede estar asociada a varios proyectos.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function proyectos()
     {
-        return $this->hasMany(RegistrosProyectos::class, 'especie_id');
-    }*/
+        return $this->hasMany(Proyecto::class, 'especie_id');
+    }
+   
 
 }

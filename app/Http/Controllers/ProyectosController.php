@@ -21,7 +21,8 @@ class ProyectosController extends Controller
     // Muestra la lista de proyectos
     public function index()
     {
-        return view('proyectos.index');
+        $proyectos = Proyecto::with('user', 'especie')->get(); // Carga relaciones para evitar errores
+        return view('proyectos.index', compact('proyectos'));
     }
 
     // Muestra los proyectos en la papelera
