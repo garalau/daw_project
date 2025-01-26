@@ -17,7 +17,7 @@
             {{ session('success') }}
         </div>
         @endif
-        <h1 class="my-4 text-center">Listado de Proyectos</h1>
+        <h1 class="my-4 text-center fw-bold fs-2">Listado de Proyectos</h1>
         
         <!-- Table Wrapper -->
         <div class="table-responsive px-3">
