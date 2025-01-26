@@ -59,7 +59,11 @@
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="btn btn-danger btn-sm">Eliminar</button>
-                            
+                            </form>
+                            <br>
+                            <!-- Botones para descargar en PDF o Excell -->
+                            <a href="{{ route('proyectos.export-pdf', $proyecto->id) }}" class="btn btn-success btn-sm">Descargar PDF</a>
+                            <a href="{{ route('proyectos.export-excel', $proyecto->id) }}" class="btn btn-success btn-sm">Descargar Excel</a>
                         </td>
                     </tr>
                     @empty

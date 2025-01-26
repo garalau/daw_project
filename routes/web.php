@@ -98,6 +98,8 @@ Route::middleware('auth')->group(function () {
     Route::post('proyectos/create', [CalculoValorConiferaController::class, 'calcularValorConifera'])->name('proyectos.resultado');
     Route::post('proyectos/store', [ProyectosController::class, 'store'])->name('proyectos.store');
     Route::delete('proyectos/{id}', [ProyectosController::class, 'destroy'])->name('proyectos.destroy');
+    Route::get('proyectos/{id}/export-pdf', [ProyectosController::class, 'exportToPDF'])->name('proyectos.export-pdf');
+    Route::get('proyectos/{id}/export-excel', [ProyectosController::class, 'exportToExcel'])->name('proyectos.export-excel');
 });
 
 

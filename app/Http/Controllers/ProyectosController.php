@@ -6,7 +6,9 @@ use App\Models\ForumQuestion;
 use Illuminate\Http\Request;
 use App\Models\Proyecto;
 use App\Models\ForumReply;
-
+use Barryvdh\DomPDF\Facade\Pdf;
+use App\Exports\ProyectoExport;
+use Maatwebsite\Excel\Facades\Excel;
 
 
 class ProyectosController extends Controller
@@ -33,6 +35,23 @@ class ProyectosController extends Controller
         return redirect()->route('proyectos.index')->with('success', 'Proyecto eliminado con éxito.');
     }
 
+    //exportar a PDF 
+    public function exportToPDF($id)
+    {
+        $proyecto = Proyecto::with('user', 'especie')->findOrFail($id);
+
+        $pdf = Pdf::loadView('proyectos.pdf', compact('proyecto'));
+        return $pdf->download("proyecto_{$proyecto->id}.pdf");
+    }
+
+    //exportar a EXCELL
+
+    public function exportToExcel($id)
+    {
+        return Excel::download(new ProyectoExport($id), "proyecto_{$id}.xlsx");
+    }
+
+    
     // Muestra los proyectos en la papelera
     public function trash()
     {
