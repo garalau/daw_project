@@ -12,6 +12,11 @@
     <x-navproject></x-navproject>
 
     <div class="container my-4">
+        @if (session('success'))
+        <div class="alert alert-success">
+            {{ session('success') }}
+        </div>
+        @endif
         <h1 class="my-4 text-center">Listado de Proyectos</h1>
         
         <!-- Table Wrapper -->
@@ -49,7 +54,11 @@
                         </td>
                         <td>{{ $proyecto->created_at->format('d/m/Y') }}</td>
                         <td>
-                            <!-- Add actions like edit, delete buttons here -->
+                            <!-- Boton para elimiinar -->
+                            <form action="{{ route('proyectos.destroy', $proyecto->id) }}" method="POST" onsubmit="return confirm('¿Estás seguro de que deseas eliminar este proyecto?');">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-danger btn-sm">Eliminar</button>
                             
                         </td>
                     </tr>

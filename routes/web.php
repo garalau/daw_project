@@ -97,6 +97,7 @@ Route::middleware('auth')->group(function () {
     Route::get('proyectos/create', [CalculoValorConiferaController::class, 'showForm'])->name('proyectos.create');
     Route::post('proyectos/create', [CalculoValorConiferaController::class, 'calcularValorConifera'])->name('proyectos.resultado');
     Route::post('proyectos/store', [ProyectosController::class, 'store'])->name('proyectos.store');
+    Route::delete('proyectos/{id}', [ProyectosController::class, 'destroy'])->name('proyectos.destroy');
 });
 
 

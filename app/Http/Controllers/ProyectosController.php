@@ -25,6 +25,14 @@ class ProyectosController extends Controller
         return view('proyectos.index', compact('proyectos'));
     }
 
+    public function destroy($id)
+    {
+        $proyecto = Proyecto::findOrFail($id);
+        $proyecto->delete();
+
+        return redirect()->route('proyectos.index')->with('success', 'Proyecto eliminado con éxito.');
+    }
+
     // Muestra los proyectos en la papelera
     public function trash()
     {
