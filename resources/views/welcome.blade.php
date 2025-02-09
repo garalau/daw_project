@@ -62,7 +62,7 @@
                                     <li class="text-muted"><i class="bi bi-x"></i> Actualizaciones avanzadas</li>
                                     <li class="text-muted"><i class="bi bi-x"></i> Soporte prioritario</li>
                                 </ul>
-                                <div class="mt-auto d-grid"><a class="btn btn-outline-success" href="#!">Seleccionar</a>
+                                <div class="mt-auto d-grid"><a class="btn btn-outline-success" href="{{ route('register') }}">Seleccionar</a>
                                 </div>
                             </div>
                         </div>
@@ -85,7 +85,7 @@
                                     <li><i class="bi bi-check text-success"></i> Soporte técnico prioritario</li>
                                     <li><i class="bi bi-check text-success"></i> Actualizaciones automáticas</li>
                                 </ul>
-                                <div class="mt-auto d-grid"><a class="btn btn-success" href="#!">Seleccionar</a></div>
+                                <div class="mt-auto d-grid"><a class="btn btn-success" href="{{ route('register') }}">Seleccionar</a></div>
                             </div>
                         </div>
                     </div>
@@ -104,7 +104,7 @@
                                     <li><i class="bi bi-check text-success"></i> Sin compromiso de suscripción</li>
                                     <li class="text-muted"><i class="bi bi-x"></i> Soporte prioritario</li>
                                 </ul>
-                                <div class="mt-auto d-grid"><a class="btn btn-outline-success" href="#!">Pagar por Uso</a>
+                                <div class="mt-auto d-grid"><a class="btn btn-outline-success" href="{{ route('register') }}">Pagar por Uso</a>
                                 </div>
                             </div>
                         </div>  
