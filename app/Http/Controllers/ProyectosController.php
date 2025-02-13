@@ -23,7 +23,9 @@ class ProyectosController extends Controller
     // Muestra la lista de proyectos
     public function index()
     {
-        $proyectos = Proyecto::with('user', 'especie')->get(); // Carga relaciones para evitar errores
+        
+        $proyectos = Proyecto::where('user_id', auth()->id())->with('user', 'especie')->get(); 
+        //$proyectos = Proyecto::with('user', 'especie')->get(); // Carga relaciones para evitar errores
         return view('proyectos.index', compact('proyectos'));
     }
 
